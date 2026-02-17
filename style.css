@@ -1,0 +1,878 @@
+/* Import Magical Disney-like Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Fredoka+One&family=Cookie&family=Parisienne&family=Patrick+Hand&family=Amatic+SC:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #571f62;
+    --title-color: #f88ff8;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --background-color: #f5f5f5;
+    --card-color: #ffffff;
+    --text-color: #333333;
+    --border-radius: 10px;
+    --border-flex: inline-block;
+    --box-shadow: 0 4px 12px rgba(181, 131, 204, 0.909);
+    --transition: all 0.3s ease;
+}
+
+/* Base Font - Friendly & Playful */
+body {
+    font-family: 'Patrick Hand', cursive;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header - Big & Bold Disney Magic */
+header {
+    background: linear-gradient(135deg, var(--title-color), #89a3f1);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    position: relative;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    font-family: 'Luckiest Guy', cursive;
+    color: #ff6b6b;
+    text-shadow: 
+        3px 3px 0 #ffa500,
+        6px 6px 0 #4d90fe,
+        9px 9px 0 rgba(0,0,0,0.1);
+    letter-spacing: 2px;
+    animation: magicGlow 2s ease-in-out infinite;
+}
+
+@keyframes magicGlow {
+    0%, 100% { text-shadow: 3px 3px 0 #ffa500, 6px 6px 0 #4d90fe; }
+    50% { text-shadow: 3px 3px 0 #ff4081, 6px 6px 0 #2196f3; }
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Fredoka One', cursive;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+button:hover::after {
+    animation: magicRipple 1s ease-out;
+}
+
+@keyframes magicRipple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(100, 100);
+        opacity: 0;
+    }
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button#exportBtn {
+    background-color: var(--success-color);
+}
+
+button#exportBtn:hover {
+    background-color: #219653;
+}
+
+button#printBtn {
+    background-color: #95a5a6;
+}
+
+button#printBtn:hover {
+    background-color: #7f8c8d;
+}
+
+/* Main Content */
+main {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Calendar Section Styles */
+.calendar-section {
+    background-color: var(--card-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--box-shadow);
+    position: relative;
+}
+.nessecities {
+ background-color: var(--card-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--box-shadow);
+    position: relative;
+}
+.food {
+ background-color: var(--card-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--box-shadow);
+    position: relative;
+}
+
+.calendar-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 2.2rem;
+    font-family: 'Parisienne', cursive;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Calendar Controls */
+.calendar-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nav-btn, .today-btn {
+    padding: 0.7rem 1.2rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Fredoka One', cursive;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-btn:hover, .today-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.today-btn {
+    background-color: var(--success-color);
+    margin-left: auto;
+}
+
+.today-btn:hover {
+    background-color: #219653;
+}
+
+.week-display {
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-family: 'Luckiest Guy', cursive;
+    color: var(--primary-color);
+    min-width: 200px;
+    text-align: center;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Calendar Day Card */
+.calendar-day {
+    background-color: var(--card-color);
+    border-radius: var(--border-radius);
+    padding: 1.2rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    cursor: pointer;
+    flex-direction: column;
+    min-height: 200px;
+    position: relative;
+    border: 2px solid transparent;
+    margin-top: 30px;
+}
+
+
+.calendar-day:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-color: var(--secondary-color);
+}
+
+.calendar-day.today {
+    border-color: var(--success-color);
+    background-color: #f8fff8;
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+}
+
+.calendar-day.weekend {
+    background-color: #f8f9fa;
+}
+
+.calendar-day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.day-name {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-family: 'Cookie', cursive;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.day-date {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Luckiest Guy', cursive;
+    color: var(--secondary-color);
+}
+
+.day-month {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.25rem;
+    font-family: 'Patrick Hand', cursive;
+}
+
+/* Events List */
+.events-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.events-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.events-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.events-list::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 3px;
+}
+
+.events-list::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
+.event-item {
+    background-color: var(--background-color);
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+    border-left: 3px solid var(--accent-color);
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.event-item:hover {
+    background-color: #e8f4f8;
+    transform: translateX(3px);
+}
+
+.event-time {
+    font-weight: bold;
+    color: var(--secondary-color);
+    display: block;
+    font-size: 0.9rem;
+    font-family: 'Amatic SC', cursive;
+}
+
+.event-title {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 0.25rem;
+    display: block;
+    font-family: 'Fredoka One', cursive;
+}
+
+
+/* Static 7-Day Calendar Styles */
+.static-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.static-calendar-day {
+    background-color: var(--card-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    box-shadow: var(--box-shadow);
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid transparent;
+    transition: var(--transition);
+}
+
+.static-calendar-day:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.static-calendar-day.weekend {
+    background-color: #f8f9fa;
+    border-color: #e9ecef;
+}
+
+.static-day-header {
+    text-align: center;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid var(--secondary-color);
+    margin-bottom: 0.75rem;
+}
+
+.static-day-name {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-family: 'Cookie', cursive;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.static-day-park {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    font-family: 'Fredoka One', cursive;
+    margin-top: 0.25rem;
+}
+
+.static-day-date {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: 'Luckiest Guy', cursive;
+    color: var(--secondary-color);
+    margin: 0.25rem 0;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.static-day-month {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+    font-family: 'Patrick Hand', cursive;
+}
+
+.static-events-list {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.88rem;
+}
+
+.static-event-item {
+    background-color: var(--background-color);
+    padding: 0.75rem;
+    border-radius: 6px;
+    border-left: 4px solid var(--accent-color);
+    transition: var(--transition);
+}
+
+.static-event-item:hover {
+    background-color: #e8f4f8;
+    transform: translateX(3px);
+}
+
+.static-event-time {
+    font-weight: bold;
+    color: var(--secondary-color);
+    font-size: 1rem;
+    font-family: 'Amatic SC', cursive;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.static-event-title {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-family: 'Fredoka One', cursive;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.static-event-description {
+    color: #666;
+    font-size: 0.82rem;
+    font-family: 'Patrick Hand', cursive;
+    display: block;
+    line-height: 1.4;
+}
+
+/* Responsive Design for Static Calendar */
+@media (max-width: 1200px) {
+    .static-calendar-grid {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .static-calendar-day {
+        min-height: 320px;
+        padding: 0.8rem;
+    }
+    
+    .static-day-date {
+        font-size: 2.1rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .static-calendar-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .static-calendar-day {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 700px) {
+    .static-calendar-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .static-calendar-day {
+        min-height: 280px;
+    }
+    
+    .static-day-date {
+        font-size: 1.9rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .static-calendar-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .static-calendar-day {
+        min-height: 320px;
+    }
+    
+    .static-day-date {
+        font-size: 2.3rem;
+    }
+}
+
+/* Day Sections */
+.day-section {
+    background-color: var(--card-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.day-section:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.section-header h2 {
+    color: var(--primary-color);
+    font-size: 2.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Parisienne', cursive;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.date-badge {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    font-family: 'Fredoka One', cursive;
+}
+
+/* Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+/*Theme Columns*/
+.theme-column {
+    align-self:flex-start !important;
+    margin-top: 0 !important;
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-radius: var(--border-flex);
+    box-shadow: var(--box-shadow);
+  /* display: flex; 
+    flex-direction: column;
+    gap: 1rem; */
+}  
+/*
+.theme-content
+{
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.5;
+    
+}
+*/
+/* Itinerary Column */
+.itinerary-column h3,
+
+.photos-column h3,
+
+.map-column h3 {
+   /* color: var(--primary-color); */
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+   /* border-bottom: 2px solid var(--secondary-color); */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 1.5rem;
+}
+
+/* Prevent activity list from stretching to full height */
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+ /* max-width: 800px; */
+  overflow-y: auto;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+  min-height: unset; /* Reset any inherited min-height */
+  align-items: stretch;
+}
+
+/* Ensure parent containers don't force full height */
+.day-section {
+  min-height: unset; /* Remove any min-height that might be forcing full screen */
+}
+
+.itinerary-column {
+  min-height: unset;
+  height: auto; /* Let content determine height */
+}
+
+/* Mobile: Cap the height and make it scrollable if needed */
+@media (max-width: 768px) {
+  .activity-list {
+    padding: 0 0.75rem;
+    max-height: 80vh; /* Limit to 80% of viewport height */
+    overflow-y: auto; /* Scroll if content exceeds */
+  }
+
+  .activity-item {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* >:( fix this !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.activity-item {
+    background-color: var(--background-color);
+    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--secondary-color);
+    transition: var(--transition);
+}
+
+/* Mobile/Tablet adjustments */
+@media (max-width: 768px) {
+  .activity-list {
+    padding: 0 0.75rem; /* Reduce side padding on mobile */
+  }
+
+  .activity-item {
+    padding: 1rem; /* Slightly smaller padding on mobile */
+    font-size: 0.95rem; /* Optional: slightly smaller text */
+  }
+}
+.activity-item:hover {
+    background-color: #e8f4f8;
+    transform: translateX(5px);
+}
+
+.activity-time {
+    font-weight: bold;
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Amatic SC', cursive;
+}
+
+.activity-details h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-family: 'Fredoka One', cursive;
+}
+
+.activity-details p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-family: 'Patrick Hand', cursive;
+}
+
+/* Photos Column */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.photo-placeholder {
+    aspect-ratio: 1;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 2px dashed #ccc;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.photo-placeholder:hover {
+    background-color: #e8e8e8;
+    border-color: var(--secondary-color);
+}
+
+.photo-placeholder i {
+    font-size: 2.5rem;
+    color: #999;
+}
+
+.photo-placeholder p {
+    color: #666;
+    font-size: 0.85rem;
+    font-family: 'Patrick Hand', cursive;
+}
+
+
+
+.map-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.map-placeholder-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.map-placeholder-content i {
+    font-size: 4rem;
+    color: var(--secondary-color);
+}
+
+.map-placeholder-content p {
+    font-size: 1.1rem;
+    font-family: 'Patrick Hand', cursive;
+    margin: 0.5rem 0;
+}
+
+.map-hint {
+    font-size: 0.85rem;
+    color: #666;
+    font-style: italic;
+    font-family: 'Patrick Hand', cursive;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    font-family: 'Patrick Hand', cursive;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .content-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .itirary-column {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+  
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .section-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .date-badge {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+
+   
+
+    .controls {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .controls,
+    footer {
+        display: none;
+    }
+
+    body {
+        background-color: white;
+    }
+
+    .day-section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+  
+}
